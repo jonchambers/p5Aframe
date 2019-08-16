@@ -1,4 +1,4 @@
-# p5Aframe
+# An example using p5.js with A-Frame
 
 ## Initialize the A-Frame Scene
 
