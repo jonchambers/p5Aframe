@@ -132,7 +132,7 @@ texture = String: link to image texture
 
 ## Cylinder 
 
-aFrameCylinder.display(px, py, pz, w, h, clr, [texture])
+aFrameCylinder.display(px, py, pz, w, h, rx, ry, rz, clr, [texture])
 
 px = Number: x position
 
@@ -143,6 +143,12 @@ pz = Number: z position
 w = Number: width
 
 h = Number: height
+
+rx = Number: x rotation
+
+ry = Number: y rotation
+
+rz = Number: z rotation
 
 clr = String: Hex color value 
 
