@@ -179,7 +179,7 @@ class aFrameCylinder{
 	  	parent.appendChild(this.vrcylinder);
 	}
 	//display the cylinder element
-	display(px, py, pz, w, h, clr, texture){
+	display(px, py, pz, w, h, rx, ry, rz, clr, texture){
 		if (clr === undefined) {
     		clr = "";
   		} 
@@ -191,9 +191,13 @@ class aFrameCylinder{
 	  	this.pz = pz;
 	  	this.w = w;
 	  	this.h = h;
+	  	this.rx = rx;
+	  	this.ry = ry;
+	  	this.rz = rz;
 	  	this.clr = clr;
 	  	this.texture = texture;
 	  	this.vrcylinder.setAttribute("position", this.px + " " + this.py + " " + this.pz);
+	  	this.vrcylinder.setAttribute("rotation", this.rx + " " + this.ry + " " + this.rz);
 	  	this.vrcylinder.setAttribute("radius", this.w);
 	  	this.vrcylinder.setAttribute("height", this.h);
 	  	this.vrcylinder.setAttribute("color", this.clr);
