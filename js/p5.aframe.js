@@ -1,6 +1,6 @@
-/* 
+/*
 
-p5.js A-Frame Class Library 
+p5.js A-Frame Class Library
 
 You'll need to include aframe.js and aframe-extras.js in your html file before calling this file
 
@@ -11,18 +11,18 @@ Jon Chambers 2019
 */
 
 //create the a-frame scene element
-function aFrameScene(){ 
+function aFrameScene(){  
 	var p5Canvas = document.getElementById("defaultCanvas0");
 	p5Canvas.style.position = "absolute";
 	p5Canvas.style.zindex = "-1";
 	this.scene = document.createElement("a-scene");
 	this.scene.setAttribute("id", "vrScene");
-	document.body.appendChild(this.scene);  
+	document.body.appendChild(this.scene);
 	var parent = document.getElementById("vrScene");
 	this.assets = document.createElement("a-assets");
 	this.assets.setAttribute("id", "mainAssets");
 	parent.appendChild(this.assets);
-	   
+
 }
 
 //create a custom positioned camera
@@ -37,7 +37,7 @@ function aFrameCamera(px, py, pz, rx, ry, rz){
 	cameraParent.appendChild(this.vrcamera);
 	this.vrcamera.setAttribute('camera', 'active', true);
 	this.vrcamera.setAttribute("look-controls", '');
-	   
+
 
 	this.px = px;
 	this.py = py;
@@ -58,7 +58,7 @@ class aFrameAnimCamera{
 	  	parent.appendChild(this.vrcamera);
 	  	this.vrcamera.setAttribute('camera', 'active', true);
 	  	this.vrcamera.setAttribute("wasd-controls",'');
-	  	this.vrcamera.setAttribute("look-controls", ''); 
+	  	this.vrcamera.setAttribute("look-controls", '');
 	}
 
 	display(px, py, pz, rx, ry, rz){
@@ -69,27 +69,27 @@ class aFrameAnimCamera{
 	  	this.ry = ry;
 	  	this.rz = rz;
 	  	this.vrcamera.setAttribute("position", this.px + " " + this.py + " " + this.pz);
-	  	this.vrcamera.setAttribute("rotation", this.rx + " " + this.ry + " " + this.rz);  	
+	  	this.vrcamera.setAttribute("rotation", this.rx + " " + this.ry + " " + this.rz);
 	}
 }
 
-//a-frame plane 
+//a-frame plane
 class aFramePlane{
 	//generate the box element
 	constructor(){
 		var parent = document.getElementById("vrScene");
 	  	this.vrplane = document.createElement("a-plane");
-	  	parent.appendChild(this.vrplane);    
+	  	parent.appendChild(this.vrplane);
 	}
 
-	//display the box element 
+	//display the box element
 	display(px, py, pz, rx, ry, rz, w, h, clr, texture){
-		if (clr === undefined) { 
+		if (clr === undefined) {
     		clr = "";
-  		} 
+  		}
   		if (texture === undefined) {
     		texture = "";
-  		} 
+  		}
 		this.px = px;
 	  	this.py = py;
 	  	this.pz = pz;
@@ -98,15 +98,15 @@ class aFramePlane{
 	  	this.rz = rz;
 	  	this.w = w;
 	  	this.h = h;
-	  	this.clr = clr;  
+	  	this.clr = clr;
 	  	this.texture = texture;
 	  	this.vrplane.setAttribute("position", this.px + " " + this.py + " " + this.pz);
 	  	this.vrplane.setAttribute("rotation", this.rx + " " + this.ry + " " + this.rz);
 	  	this.vrplane.setAttribute("width", this.w);
 	  	this.vrplane.setAttribute("height", this.h);
 	  	this.vrplane.setAttribute("color", this.clr);
-	  	this.vrplane.setAttribute("src", this.texture);	 
-	  	this.vrplane.setAttribute("material", "side: double"); 		  	
+	  	this.vrplane.setAttribute("src", this.texture);
+	  	this.vrplane.setAttribute("material", "side: double");
 	}
 }
 
@@ -116,16 +116,16 @@ class aFrameBox{
 	constructor(){
 		var parent = document.getElementById("vrScene");
 	  	this.vrbox = document.createElement("a-box");
-	  	parent.appendChild(this.vrbox);    
+	  	parent.appendChild(this.vrbox);
 	}
-	//display the box element 
+	//display the box element
 	display(px, py, pz, rx, ry, rz, clr, texture){
 		if (clr === undefined) {
     		clr = "";
-  		} 
+  		}
   		if (texture === undefined) {
     		texture = "";
-  		} 
+  		}
 		this.px = px;
 	  	this.py = py;
 	  	this.pz = pz;
@@ -137,7 +137,7 @@ class aFrameBox{
 	  	this.vrbox.setAttribute("position", this.px + " " + this.py + " " + this.pz);
 	  	this.vrbox.setAttribute("rotation", this.rx + " " + this.ry + " " + this.rz);
 	  	this.vrbox.setAttribute("color", this.clr);
-	  	this.vrbox.setAttribute("src", this.texture);	  		  	
+	  	this.vrbox.setAttribute("src", this.texture);
 	}
 }
 
@@ -147,16 +147,16 @@ class aFrameSphere{
 	constructor(){
 		var parent = document.getElementById("vrScene");
 	  	this.vrshpere = document.createElement("a-sphere");
-	  	parent.appendChild(this.vrshpere);    
+	  	parent.appendChild(this.vrshpere);
 	}
 	//display the sphere element
 	display(px, py, pz, r, clr, texture){
 		if (clr === undefined) {
     		clr = "";
-  		} 
+  		}
   		if (texture === undefined) {
     		texture = "";
-  		} 
+  		}
 		this.px = px;
 	  	this.py = py;
 	  	this.pz = pz;
@@ -166,7 +166,7 @@ class aFrameSphere{
 	  	this.vrshpere.setAttribute("position", this.px + " " + this.py + " " + this.pz);
 	  	this.vrshpere.setAttribute("radius", this.r);
 	  	this.vrshpere.setAttribute("color", this.clr);
-	  	this.vrshpere.setAttribute("src", this.texture); 		  	
+	  	this.vrshpere.setAttribute("src", this.texture);
 	}
 }
 
@@ -182,10 +182,10 @@ class aFrameCylinder{
 	display(px, py, pz, w, h, rx, ry, rz, clr, texture){
 		if (clr === undefined) {
     		clr = "";
-  		} 
+  		}
   		if (texture === undefined) {
     		texture = "";
-  		} 
+  		}
 		this.px = px;
 	  	this.py = py;
 	  	this.pz = pz;
@@ -201,7 +201,7 @@ class aFrameCylinder{
 	  	this.vrcylinder.setAttribute("radius", this.w);
 	  	this.vrcylinder.setAttribute("height", this.h);
 	  	this.vrcylinder.setAttribute("color", this.clr);
-	  	this.vrcylinder.setAttribute("src", this.texture); 
+	  	this.vrcylinder.setAttribute("src", this.texture);
 
 	}
 
@@ -209,7 +209,7 @@ class aFrameCylinder{
 
 //a-frame model class
 class aFrameModel{
-	//generte the model 
+	//generte the model
 	constructor(){
 		var parent = document.getElementById("vrScene");
 	  	this.vrmodel = document.createElement("a-entity");
@@ -226,7 +226,7 @@ class aFrameModel{
 	  	this.sz = sz;
 	  	this.rx = rx;
 	  	this.ry = ry;
-	  	this.rz = rz;  
+	  	this.rz = rz;
 	  	this.vrmodel.setAttribute("position", this.px + " " + this.py + " " + this.pz);
 	  	this.vrmodel.setAttribute("scale", this.sx + " " + this.sy + " " + this.sz);
 	  	this.vrmodel.setAttribute("rotation", this.rx + " " + this.ry + " " + this.rz);
@@ -257,19 +257,13 @@ class aFrameTexture{
 function aFrameSky(clr, texture){
 	if (clr === undefined) {
     		clr = "";
-  		} 
+  		}
   		if (texture === undefined) {
     		texture = "";
-  		} 
+  		}
 	var parent = document.getElementById("vrScene");
 	this.vrsky = document.createElement("a-sky");
 	this.vrsky.setAttribute("color", clr);
 	this.vrsky.setAttribute("src", texture);
 	parent.appendChild(this.vrsky);
 }
-
-
-
-
-
-
