@@ -11,7 +11,7 @@ Jon Chambers 2019
 */
 
 //create the a-frame scene element
-function aFrameScene(){  
+function aFrameScene(){   
 	var p5Canvas = document.getElementById("defaultCanvas0");
 	p5Canvas.style.position = "absolute";
 	p5Canvas.style.zindex = "-1";
